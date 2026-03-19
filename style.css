@@ -176,7 +176,7 @@ body {
 .hero-section {
     height: 100vh;      /* Prend toute la hauteur visible de la fenêtre */
     margin-top: 85px;   /* Compense la hauteur de la navbar fixe */
-    background: url('images/hero-bg.jpg') center/cover no-repeat; /* Image de fond centrée */
+    background: url('images/logo.jpg') center/cover no-repeat; /* Image de fond centrée */
 }
 
 .hero-overlay { 
