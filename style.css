@@ -172,8 +172,7 @@ body {
 
 /* MÉCANISME DU MENU MOBILE SANS JS */
 #menu-check:checked ~ .sidebar { right: 0; } /* Si la checkbox est cochée, on montre la sidebar */
-#menu-check:checked ~ .overlay { display: block; } /* Si cochée, on montre le fond sombre */
-
+#menu-check:checked ~ .overlay { display: block; } /* Si cochée, on montre le fond sombre */ 
 /* HERO SECTION */
 .hero-section {
     height: 80vh;      /* Prend 80% de la hauteur de la zone visible */
@@ -226,7 +225,8 @@ body {
 
 /* ARGUMENTS */
 .arguments { padding: 80px 10%; text-align: center; } /* Section des atouts */
-.section-title { margin-bottom: 50px; color: #004a99; font-size: 2.5rem; }
+.section-title { margin-bottom: 50px; color: #004a99; font-size: 2.5rem; 
+}
 .arg-container { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
 .arg-item { 
     flex: 1; min-width: 280px; padding: 40px; 

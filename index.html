@@ -140,5 +140,16 @@
         </div>
     </footer>
 
+    <script>
+        const menuCheck = document.getElementById('menu-check');
+        const sidebarLinks = document.querySelectorAll('.sidebar-links a');
+
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuCheck.checked = false;
+            });
+        });
+    </script>
+
 </body>
 </html>
