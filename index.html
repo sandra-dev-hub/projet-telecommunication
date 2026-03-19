@@ -1,45 +1,63 @@
 <!DOCTYPE html>
-<html lang="fr"> <head>
-    <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>SandraTelecom-Expert en Connectivité</title> <link rel="stylesheet" href="style.css"> </head>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SandraTelecom - Expert en Connectivité</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
     <nav class="main-navbar">
         <div class="nav-container">
             
             <div class="logo-area">
-                <img src="images/logo.jpg" alt="Logo" class="site-logo"> <span class="brand-name">Sandra<span>Telecom</span></span> </div>
+                <img src="images/logo.jpg" alt="Logo" class="site-logo"> 
+                <span class="brand-name">Sandra<span>Telecom</span></span> 
+            </div>
 
             <div class="search-area">
-                <form action="#" class="search-form"> <input type="text" placeholder="Rechercher un forfait..." class="search-input"> <button type="submit" class="search-btn">Rechercher</button> </form>
+                <form action="#" class="search-form"> 
+                    <input type="text" placeholder="Rechercher un forfait..." class="search-input"> 
+                    <button type="submit" class="search-btn">Rechercher</button> 
+                </form>
             </div>
             
             <ul class="desktop-menu">
                 <li><a href="#home">Accueil</a></li>
                 <li><a href="#arguments">Atouts</a></li>
                 <li><a href="#gallery">Structure</a></li>
-                <li><a href="#" class="btn-portal">Mon Espace</a></li> </ul>
+                <li><a href="#" class="btn-portal">Mon Espace</a></li> 
+            </ul>
 
-            <div class="mobile-toggle" id="mobile-toggle">
-                <span></span> <span></span> <span></span> </div>
+            <input type="checkbox" id="menu-check" style="display: none;">
+            <label class="mobile-toggle" for="menu-check">
+                <span></span> <span></span> <span></span> 
+            </label>
+
+            <aside class="sidebar">
+                <ul class="sidebar-links">
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#arguments">Atouts</a></li>
+                    <li><a href="#gallery">Structure</a></li>
+                    <li><a href="#testimonials">Témoignages</a></li>
+                    <li><a href="#" class="btn-portal">Mon Espace</a></li>
+                </ul>
+            </aside>
+
+            <label class="overlay" for="menu-check"></label>
         </div>
     </nav>
-
-    <aside class="sidebar" id="sidebar">
-        <ul class="sidebar-links">
-            <li><a href="#home">Accueil</a></li>
-            <li><a href="#arguments">Atouts</a></li>
-            <li><a href="#gallery">Structure</a></li>
-            <li><a href="#testimonials">Témoignages</a></li>
-        </ul>
-    </aside>
-
-    <div class="overlay" id="overlay"></div>
 
     <header class="hero-section" id="home">
         <div class="hero-overlay">
             <div class="hero-content">
-                <h1>L'Excellence Numérique au Cameroun</h1> <p>La puissance du réseau fibre au service de votre croissance et de votre quotidien.</p> <div class="hero-btns">
-                    <a href="#" class="btn-primary">Nos Forfaits</a> <a href="#" class="btn-secondary">Solutions Business</a> </div>
+                <h1>L'Excellence Numérique au Cameroun</h1> 
+                <p>La puissance du réseau fibre au service de votre croissance et de votre quotidien.</p> 
+                <div class="hero-btns">
+                    <a href="#" class="btn-primary">Nos Forfaits</a> 
+                    <a href="#" class="btn-secondary">Solutions Business</a> 
+                </div>
             </div>
         </div>
     </header>
@@ -48,7 +66,8 @@
         <h2 class="section-title">Pourquoi nous choisir ?</h2>
         <div class="arg-container">
             <div class="arg-item">
-                <div class="number-badge">01</div> <h3>Vitesse Ultra-Fibre</h3>
+                <div class="number-badge">01</div> 
+                <h3>Vitesse Ultra-Fibre</h3>
                 <p>Une connexion stable pour vos visioconférences et téléchargements lourds.</p>
             </div>
             <div class="arg-item">
@@ -67,11 +86,16 @@
     <section class="gallery" id="gallery">
         <h2 class="section-title">Notre Structure en images</h2>
         <div class="slider-wrapper">
-            <div class="slider"> <img src="images/siege.jpg" alt="Siège">
+            <div class="slider"> 
+                <img src="images/siege.jpg" alt="Siège">
                 <img src="images/serveur.jpg" alt="Data Center">
                 <img src="images/agence.jpg" alt="Agence">
                 <img src="images/technique.jpg" alt="Installation">
-                </div>
+                <img src="images/siege.jpg" alt="Siège">
+                <img src="images/serveur.jpg" alt="Data Center">
+                <img src="images/agence.jpg" alt="Agence">
+                <img src="images/technique.jpg" alt="Installation">
+            </div>
         </div>
     </section>
 
@@ -94,26 +118,21 @@
             <div class="footer-info">
                 <h4>SandraTelecom</h4>
                 <p>Leader de l'infrastructure numérique.</p>
-                <p>Siège : Stade bamendzi, Bafoussam.</p>
+                <p>Stade bamendzi, Bafoussam.</p>
             </div>
             <div class="footer-links">
                 <h4>Navigation</h4>
                 <ul>
-                    <a href="#home">Accueil</a>
-                    <a href="#arguments">Nos Atouts</a>
-                    <a href="#gallery">Galerie Photo</a>
-                    <a href="#testimonials">Avis Clients</a>
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#arguments">Nos Atouts</a></li>
+                    <li><a href="#gallery">Galerie Photo</a></li>
+                    <li><a href="#testimonials">Avis Clients</a></li>
                 </ul>
             </div>
             <div class="footer-contact">
                 <h4>Contactez-nous</h4>
-                <br>
-                <p>
-                    <span class="symbol">&#9990;</span>+237 653 85 85 86</a>
-                </p>
-                <p>
-                    <span class="symbol">&#9993;</span>towasandra6@gmail.com</a>
-                </p>
+                <p><span class="symbol">&#9990;</span> +237 653 85 85 86</p>
+                <p><span class="symbol">&#9993;</span> towasandra6@gmail.com</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -121,23 +140,5 @@
         </div>
     </footer>
 
-    <script>
-        // Sélection des éléments HTML par leur ID
-        const toggle = document.getElementById('mobile-toggle');
-        const sidebar = document.getElementById('sidebar');
-        const overlay = document.getElementById('overlay');
-
-        // Fonction déclenchée lors du clic sur le menu burger
-        toggle.onclick = function() {
-            sidebar.classList.toggle('active'); // Ajoute ou retire la classe CSS 'active' du menu
-            overlay.classList.toggle('active'); // Ajoute ou retire le voile sombre
-        };
-
-        // Fonction déclenchée lors du clic sur le voile sombre (ferme le menu)
-        overlay.onclick = function() {
-            sidebar.classList.remove('active'); // Retire la classe active
-            overlay.classList.remove('active'); // Retire le voile
-        };
-    </script>
 </body>
 </html>
