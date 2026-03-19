@@ -1,177 +1,390 @@
-/*root permet de centraliser les couleurs*/
-:root {
-    --blue-camtel: #00aeef; /* Bleu clair Camtel */
-    --dark-blue: #0054a6;  /* Bleu foncé */
-    --white: #ffffff;
-    --gray-bg: #f4f7f9;    /* Couleur de fond légère pour les sections */
-    --text-dark: #333333;  /* Couleur du texte principal */
-}
+/*je commante mon code afin de faciliter la reutikisation dans d'autre code*/
 
-/*RESET : On remet à zéro les marges par défaut des navigateurs*/
-* {
-    margin: 0;/*Par défaut, les navigateurs ajoutent des marges invisibles. On les supprime pour repartir d'une page "propre*/
-    padding: 0;
-    box-sizing: border-box; /* il est Crucial pour le calcul des tailles. Cela garantit que si vous donnez une largeur de 100px à un bouton et ajoutez 10px de padding, le bouton fera toujours 100px (et non 120px). */
-    scroll-behavior: smooth; /* Animation fluide lors du clic sur les liens */
-}
+/*CONFIGURATION LOCALE ET RESET*/
+* { 
+    margin: 0;          /* Supprime les marges par défaut de tous les éléments */
+    padding: 0;         /* Supprime les espacements internes par défaut */
+    box-sizing: border-box; /* Inclut bordures et padding dans le calcul de la largeur */
+} 
 
 body {
-    font-family: 'Segoe UI', sans-serif;
-    line-height: 1.6;
-    color: var(--text-dark);
+    font-family: Arial, sans-serif; /* Définit la police de caractères principale */
+    line-height: 1.6;               /* Définit l'espacement entre les lignes de texte */
+    color: #333;                    /* Définit la couleur du texte en gris foncé */
+    overflow-x: hidden;             /* Empêche le défilement horizontal indésirable */
 }
 
-/* Conteneur pour centrer le contenu sur grand écran */
-.container {
-    max-width: 1200px;/*Empêche le contenu de s'étaler sur toute la largeur des écrans géants, ce qui rendrait la lecture difficile.*/
-    margin: 0 auto; /*Centre ce bloc horizontalement.*/
-    padding: 0 20px;
-}
-
-/*BARRE DE NAVIGATION*/
-.navbar {
-    background: var(--white);
-    padding: 15px 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Ombre légère sous le menu */
-    position: sticky; /* Reste en haut lors du défilement */
-    top: 0;
-    z-index: 1000; /* Priorité d'affichage au-dessus des autres éléments */
+/*NAVBAR FIXE*/
+.main-navbar {
+    position: fixed;    /* Fixe la barre de navigation en haut de l'écran */
+    top: 0;             /* Aligne la barre tout en haut */
+    width: 100%;        /* Prend toute la largeur de l'écran */
+    height: 85px;       /* Définit une hauteur fixe de 85 pixels */
+    background: #fff;   /* Couleur de fond blanche */
+    display: flex;      /* Active le mode Flexbox pour l'alignement */
+    align-items: center;/* Centre verticalement les éléments enfants */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Ajoute une ombre légère en bas */
+    z-index: 1000;      /* S'assure que la barre reste au-dessus de tout le contenu */
 }
 
 .nav-container {
-    display: flex; /* Aligne logo, menu et bouton sur une seule ligne */
-    justify-content: space-between; /* Espace maximum entre les éléments */
-    align-items: center; /* Centre verticalement */
+    width: 95%;         /* La barre occupe 95% de la largeur disponible */
+    margin: 0 auto;     /* Centre le conteneur horizontalement */
+    display: flex;      /* Aligne le logo, la recherche et le menu en ligne */
+    justify-content: space-between; /* Espace les éléments aux extrémités */
+    align-items: center;/* Aligne les éléments sur le même axe central */
 }
 
-/* Style de la barre de recherche */
-.search-form {
-    display: flex;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    overflow: hidden; /* Pour que le bouton suive l'arrondi du bord */
+/*GESTION PRÉCISE DE LA TAILLE DU LOGO*/
+.logo-area { 
+    display: flex;      /* Aligne l'image du logo et le texte à côté */
+    align-items: center;/* Centre verticalement l'image et le texte */
+    min-width: 200px;   /* Garantit un espace minimum pour le logo */
 }
 
-.search-form input {
-    padding: 8px 12px;
-    border: none;
-    outline: none; /* Enlève la bordure bleue au clic */
-    width: 200px;
+.site-logo {
+    height: 45px;       /* Fixe la hauteur de l'image du logo */
+    width: auto;        /* Calcule automatiquement la largeur pour garder le ratio */
+    max-width: 120px;   /* Limite la largeur maximale pour éviter les déformations */
+    object-fit: contain;/* S'assure que l'image tient dans le cadre sans être rognée */
+    margin-right: 10px; /* Ajoute un espace à droite entre l'image et le texte */
 }
 
-.search-form button {
-    padding: 8px 15px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
+.brand-name { 
+    font-size: 1.4rem;  /* Taille du texte du nom de la marque */
+    font-weight: bold;  /* Met le texte en gras */
+    color: #004a99;     /* Couleur bleue principale */
 }
 
-.logo img { height: 45px; }
-
-.nav-links {
-    display: flex; /* Aligne les liens horizontalement */
-    list-style: none; /* Enlève les puces (points) de la liste */
+.brand-name span { 
+    color: #ffcc00;     /* Met le mot "Telecom" en couleur jaune/or */
 }
 
-.nav-links li { margin-left: 30px; }
-
-.nav-links a {
-    text-decoration: none; /* Enlève le soulignement des liens */
-    color: var(--text-dark);
-    font-weight: 600;
+/*BARRE DE RECHERCHE ALLONGÉE*/
+.search-area {
+    flex: 1;            /* Permet à la recherche de prendre tout l'espace central */
+    max-width: 500px;   /* Limite la largeur de la barre de recherche à 500px */
+    margin: 0 30px;     /* Ajoute des marges à gauche et à droite */
 }
 
-.nav-links a:hover { color: var(--blue-camtel); } /* Changement de couleur au survol */
-
-/*SECTION HERO (ACCUEIL)*/
-.hero {
-    height: 80vh; /* Prend 80% de la hauteur de l'écran */
-    background: url('images/hero.jpg') center/cover no-repeat; /* Image centrée qui couvre tout l'espace */
-    position: relative;
-    display: flex;
-    align-items: center;
-    color: var(--white);
+.search-form { 
+    display: flex;      /* Met l'input et le bouton côte à côte */
+    width: 100%;        /* Utilise toute la largeur du parent */
 }
 
-.hero-overlay {
-    background: rgba(0, 0, 0, 0.4); /* Filtre noir transparent à 40% */
-    width: 100%; height: 100%;
-    display: flex; align-items: center;
+.search-input {
+    flex: 1;            /* Le champ de saisie s'étire au maximum */
+    padding: 10px 15px; /* Espacement interne pour le confort de lecture */
+    border: 1px solid #ddd; /* Bordure grise claire */
+    border-radius: 20px 0 0 20px; /* Arrondi seulement le côté gauche */
+    outline: none;      /* Supprime le contour bleu par défaut au clic */
+    font-size: 14px;    /* Taille du texte saisi */
 }
 
-.hero-content { padding: 0 5%; max-width: 800px; }
-
-.hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; }
-.hero h1 span { color: var(--blue-camtel); }
-
-.btn-primary {
-    background: var(--blue-camtel);
-    color: white;
-    padding: 12px 30px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    display: inline-block;
+.search-btn {
+    padding: 10px 20px; /* Taille du bouton de recherche */
+    background: #004a99;/* Couleur de fond bleue */
+    color: white;       /* Couleur du texte blanche */
+    border: 1px solid #004a99; /* Bordure identique au fond */
+    border-radius: 0 20px 20px 0; /* Arrondi seulement le côté droit */
+    cursor: pointer;    /* Transforme la souris en main au survol */
+    font-weight: bold;  /* Texte du bouton en gras */
 }
 
-/*SECTION SERVICES (GRILLE)*/
-.services { padding: 80px 0; background: var(--gray-bg); }
-.section-title { font-size: 2.2rem; color: var(--dark-blue); margin-bottom: 30px; }
-.center { text-align: center; }
-
-.services-grid {
-    display: grid; /* Système de grille moderne */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Crée des colonnes automatiques de 300px min */
-    gap: 30px; /* Espace entre les cartes */
-    margin-top: 40px;
+/*MENU DESKTOP*/
+.desktop-menu { 
+    display: flex;      /* Aligne les liens du menu horizontalement */
+    list-style: none;   /* Supprime les puces par défaut des listes */
+    align-items: center;/* Centre verticalement les liens */
 }
 
-.service-card {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    transition: 0.3s; /* Pour l'animation au survol */
+.desktop-menu li { 
+    margin-left: 20px;  /* Espace chaque lien du menu par la gauche */
 }
 
-.service-card:hover { transform: translateY(-10px); } /* La carte monte un peu au survol */
-
-.service-card img { width: 100%; height: 200px; object-fit: cover; }
-.card-body { padding: 20px; }
-
-/*FOOTER*/
-.footer { background: #1a1a1a; color: white; padding: 70px 0 20px; }
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 40px;
+.desktop-menu a { 
+    text-decoration: none; /* Supprime le soulignement des liens */
+    color: #333;        /* Couleur de texte grise foncée */
+    font-weight: 600;   /* Épaisseur de texte semi-gras */
 }
 
-.footer-logo { height: 40px; margin-bottom: 20px;; } /* gere la taille du logo */
-
-.footer-bottom {
-    text-align: center;
-    border-top: 1px solid #333;
-    padding-top: 20px; margin-top: 40px;
-    font-size: 0.9rem; color: #777;
+.btn-portal { 
+    background: #004a99;/* Fond bleu pour le bouton "Mon Espace" */
+    color: #fff !important; /* Force le texte en blanc */
+    padding: 10px 18px; /* Espacement interne pour créer le bouton */
+    border-radius: 5px; /* Légère courbure des angles */
 }
 
-/*MEDIA QUERIES : GESTION DU RESPONSIVE*/
-
-/* on l'applique quand l'écran fait moins de 992px (Tablettes) */
-@media (max-width: 992px) {
-    .hero h1 { font-size: 2.5rem; }
-    .about-flex { flex-direction: column; text-align: center; } /* Empile texte et image */
+/*MENU MOBILE (TOGGLE & SIDEBAR)*/
+.mobile-toggle { 
+    display: none;      /* Masqué par défaut (apparaît sur mobile via media query) */
+    flex-direction: column; /* Aligne les 3 barres verticalement */
+    gap: 5px;           /* Espace entre les barres du menu burger */
+    cursor: pointer;    /* Indique que l'élément est cliquable */
 }
 
-/*  on l'applique quand l'écran fait moins de 768px (Téléphones) */
-@media (max-width: 768px) {
-    .nav-links { display: none; } /* On cache le menu pour simplifier (idéalement utiliser un menu burger) */
-    
-    .hero { text-align: center; }
-    .hero h1 { font-size: 1.8rem; }
-    
-    .services-grid { grid-template-columns: 1fr; } /* ici On force les services à s'afficher les uns sous les autres (une seule colonne) pour une lecture confortable sur smartphone */
+.mobile-toggle span { 
+    width: 25px;        /* Largeur des barres du menu burger */
+    height: 3px;        /* Épaisseur des barres */
+    background: #004a99;/* Couleur bleue pour les barres */
+}
+
+.sidebar {
+    position: fixed;    /* Position fixe par rapport à l'écran */
+    top: 0;             /* Aligné en haut */
+    right: -280px;      /* Caché à droite en dehors de l'écran */
+    width: 280px;       /* Largeur du menu latéral */
+    height: 100%;       /* Prend toute la hauteur de l'écran */
+    background: #111;   /* Fond noir pour le menu mobile */
+    z-index: 1001;      /* Au-dessus de la navbar (1000) */
+    transition: 0.4s ease; /* Animation fluide de l'ouverture (0.4 seconde) */
+    padding: 100px 30px;/* Espace intérieur pour les liens */
+}
+
+.sidebar.active { 
+    right: 0;           /* Ramène le menu à l'écran quand il est activé */
+}
+
+.sidebar-links { 
+    list-style: none;   /* Supprime les puces de la liste latérale */
+}
+
+.sidebar-links a { 
+    color: #fff;        /* Liens en blanc sur fond noir */
+    text-decoration: none; /* Supprime le soulignement */
+    display: block;     /* Chaque lien prend toute sa ligne */
+    margin-bottom: 20px;/* Espace entre les liens */
+    font-size: 1.2rem;  /* Taille de texte plus grande pour mobile */
+}
+
+.overlay {
+    position: fixed;    /* Couvre tout l'écran */
+    top: 0;             /* Aligné en haut */
+    left: 0;            /* Aligné à gauche */
+    width: 100%;        /* Toute la largeur */
+    height: 100%;       /* Toute la hauteur */
+    background: rgba(0,0,0,0.7); /* Fond noir semi-transparent (70%) */
+    display: none;      /* Masqué par défaut */
+    z-index: 999;       /* Sous le menu latéral mais sur le contenu */
+}
+
+.overlay.active { 
+    display: block;     /* Devient visible quand le menu mobile est ouvert */
+}
+
+/*SECTION HÉRO*/
+.hero-section {
+    height: 100vh;      /* Prend toute la hauteur visible de la fenêtre */
+    margin-top: 85px;   /* Compense la hauteur de la navbar fixe */
+    background: url('images/hero-bg.jpg') center/cover no-repeat; /* Image de fond centrée */
+}
+
+.hero-overlay { 
+    width: 100%;        /* Toute la largeur */
+    height: 100%;       /* Toute la hauteur */
+    background: rgba(0,0,0,0.5); /* Filtre sombre pour rendre le texte lisible */
+    display: flex;      /* Utilise Flexbox pour centrer le contenu */
+    align-items: center;/* Centrage vertical */
+    justify-content: center; /* Centrage horizontal */
+}
+
+.hero-content { 
+    text-align: center; /* Centre le texte à l'intérieur */
+    color: #fff;        /* Couleur de texte blanche */
+    padding: 20px;      /* Sécurité pour ne pas toucher les bords sur mobile */
+}
+
+.hero-content h1 { 
+    font-size: 3rem;    /* Grand titre d'accueil */
+    margin-bottom: 20px;/* Espace sous le titre */
+}
+
+.btn-primary { 
+    background: #ffcc00;/* Fond jaune pour le bouton principal */
+    color: #000;        /* Texte noir pour contraste */
+    padding: 15px 30px; /* Taille du bouton */
+    text-decoration: none; /* Supprime le soulignement */
+    font-weight: bold;  /* Texte en gras */
+    border-radius: 5px; /* Angles arrondis */
+    margin: 10px;       /* Espace entre les boutons */
+    display: inline-block; /* Permet d'appliquer padding et marges correctement */
+}
+
+.btn-secondary { 
+    border: 2px solid #fff; /* Bordure blanche simple */
+    color: #fff;        /* Texte blanc */
+    padding: 13px 28px; /* Taille légèrement différente du bouton plein */
+    text-decoration: none; /* Supprime le soulignement */
+    border-radius: 5px; /* Angles arrondis */
+    margin: 10px;       /* Espace entre les boutons */
+    display: inline-block; /* Permet l'alignement en ligne */
+}
+
+/*ARGUMENTS (PASTILLES NUMÉROTÉES)*/
+.arguments { 
+    padding: 80px 10%;  /* Grand espace haut/bas et 10% sur les côtés */
+    background: #fff;   /* Fond blanc */
+    text-align: center; /* Centre les titres et textes */
+}
+
+.section-title { 
+    margin-bottom: 40px;/* Espace sous le titre de section */
+    color: #004a99;     /* Couleur bleue pour le titre */
+    font-size: 2.2rem;  /* Taille du titre */
+}
+
+.arg-container { 
+    display: flex;      /* Aligne les boîtes d'arguments en ligne */
+    flex-wrap: wrap;    /* Permet de passer à la ligne si pas assez de place */
+    gap: 30px;          /* Espace entre chaque boîte */
+    justify-content: center; /* Centre les boîtes dans l'espace */
+}
+
+.arg-item { 
+    flex: 1;            /* Les boîtes occupent une largeur égale */
+    min-width: 250px;   /* Taille minimum avant de passer à la ligne */
+    padding: 30px;      /* Espace intérieur de la boîte */
+    border-top: 4px solid #004a99; /* Ligne bleue décorative en haut */
+    background: #fdfdfd;/* Couleur de fond très légèrement grise */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Ombre très douce */
+}
+
+.number-badge { 
+    width: 40px;        /* Largeur du cercle numéroté */
+    height: 40px;       /* Hauteur du cercle */
+    background: #004a99;/* Fond bleu */
+    color: #fff;        /* Chiffre en blanc */
+    line-height: 40px;  /* Centre le chiffre verticalement */
+    border-radius: 50%; /* Crée un cercle parfait */
+    margin: 0 auto 15px;/* Centre le cercle et ajoute un espace en bas */
+    font-weight: bold;  /* Chiffre en gras */
+}
+
+/*SLIDER GALERIE*/
+.gallery { 
+    padding: 60px 0;    /* Espace haut et bas */
+    background: #f9f9f9;/* Fond gris très clair */
+}
+
+.slider-wrapper { 
+    width: 100%;        /* Toute la largeur */
+    overflow: hidden;   /* Cache les images qui dépassent de l'écran */
+}
+
+.slider { 
+    display: flex;      /* Met les images côte à côte */
+    width: calc(320px * 8); /* Définit une largeur totale très grande pour l'animation */
+    animation: scroll 20s linear infinite; /* Lance l'animation de défilement infini */
+}
+
+.slider img { 
+    width: 300px;       /* Largeur de chaque image */
+    height: 200px;      /* Hauteur de chaque image */
+    object-fit: cover;  /* Remplit le cadre sans déformer l'image */
+    margin-right: 20px; /* Espace entre les images */
+    border-radius: 10px;/* Angles arrondis des photos */
+}
+
+@keyframes scroll { 
+    0% { transform: translateX(0); }        /* Position de départ de l'animation */
+    100% { transform: translateX(-1200px); } /* Déplacement vers la gauche */
+}
+
+/*TÉMOIGNAGES*/
+.testimonials { 
+    padding: 80px 10%;  /* Large espace pour aérer */
+    background: #004a99;/* Fond bleu SandraTelecom */
+    color: #fff;        /* Texte blanc */
+    text-align: center; /* Texte centré */
+}
+
+.testi-card { 
+    background: rgba(255,255,255,0.1); /* Fond blanc transparent pour l'effet carte */
+    padding: 30px;      /* Espace intérieur */
+    border-radius: 10px;/* Angles arrondis */
+    margin: 10px;       /* Marge extérieure */
+    flex: 1;            /* Largeur flexible */
+    min-width: 300px;   /* Largeur minimum */
+}
+
+/*FOOTER (LIENS BLANCS)*/
+.main-footer { 
+    background: #111;   /* Fond noir pour le pied de page */
+    color: #fff;        /* Texte blanc */
+    padding: 60px 10% 20px; /* Espacements haut, côtés et bas */
+}
+
+.footer-container { 
+    display: flex;      /* Aligne les colonnes du footer */
+    justify-content: space-between; /* Espace les colonnes */
+    flex-wrap: wrap;    /* Permet l'empilement sur mobile */
+    gap: 40px;          /* Espace entre colonnes */
+}
+
+.footer-links a { 
+    color: #ffffff !important; /* Force les liens en blanc */
+    text-decoration: none; /* Supprime le soulignement */
+    display: block;     /* Un lien par ligne */
+    margin-bottom: 10px;/* Espace sous chaque lien */
+    transition: 0.3s;   /* Vitesse de l'effet au survol */
+}
+
+.footer-links a:hover { 
+    color: #ffcc00 !important; /* Change en jaune au survol */
+    transform: translateX(5px); /* Décale légèrement vers la droite au survol */
+}
+
+.footer-bottom { 
+    text-align: center; /* Centre le texte du copyright */
+    border-top: 1px solid #333; /* Ligne de séparation grise foncée */
+    margin-top: 40px;   /* Espace au-dessus de la ligne */
+    padding-top: 20px;  /* Espace en-dessous de la ligne */
+    color: #777;        /* Texte du copyright en gris discret */
+}
+
+/*AJUSTEMENTS RESPONSIFS*/
+
+/* Pour les tablettes et petits ordinateurs */
+@media screen and (max-width: 992px) {
+    .desktop-menu, .search-area { 
+        display: none;  /* Masque le menu classique et la recherche sur tablette */
+    } 
+    .mobile-toggle { 
+        display: flex;  /* Affiche le bouton menu burger */
+    }
+    .hero-content h1 { 
+        font-size: 2.2rem; /* Réduit la taille du titre */
+    }
+    .footer-container {
+        flex-direction: column; /* Empile les colonnes du footer verticalement */
+        text-align: center;    /* Centre tout le texte du footer */
+    }
+}
+
+/* Pour les smartphones */
+@media screen and (max-width: 600px) {
+    .hero-content h1 { 
+        font-size: 1.8rem; /* Titre plus petit pour les téléphones */
+    }
+    .hero-btns { 
+        display: flex;         /* Met les boutons en flex */
+        flex-direction: column;/* Empile les boutons l'un sur l'autre */
+    }
+    .arg-container {
+        flex-direction: column;/* Empile les atouts verticalement */
+        padding: 0 5%;         /* Réduit les marges sur les côtés */
+    }
+    .arg-item {
+        width: 100%;           /* Chaque atout prend toute la largeur */
+    }
+    .testi-card {
+        min-width: 100%;       /* Chaque témoignage prend toute la largeur */
+        margin: 10px 0;        /* Ajuste les marges */
+    }
+    .brand-name { 
+        font-size: 1.1rem;     /* Nom de marque plus petit */
+    }
+    .site-logo { 
+        height: 35px;          /* Logo plus petit sur mobile */
+    }
 }

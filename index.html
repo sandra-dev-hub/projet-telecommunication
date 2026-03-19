@@ -1,129 +1,143 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Camtel - Présentation Entreprise</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+<html lang="fr"> <head>
+    <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>SandraTelecom-Expert en Connectivité</title> <link rel="stylesheet" href="style.css"> </head>
 <body>
 
-    <nav class="navbar">
+    <nav class="main-navbar">
         <div class="nav-container">
-            <div class="logo">
-                <img src="images/logo.jpg" alt="Logo Camtel">
+            
+            <div class="logo-area">
+                <img src="images/logo.jpg" alt="Logo" class="site-logo"> <span class="brand-name">Sandra<span>Telecom</span></span> </div>
+
+            <div class="search-area">
+                <form action="#" class="search-form"> <input type="text" placeholder="Rechercher un forfait..." class="search-input"> <button type="submit" class="search-btn">Rechercher</button> </form>
             </div>
-    <form class="search-form" action="/search" method="GET">
-        <input type="text" name="q" placeholder="Rechercher..." aria-label="Rechercher">
-        <button type="submit">OK</button>
-    </form>
-            <ul class="nav-links">
+            
+            <ul class="desktop-menu">
                 <li><a href="#home">Accueil</a></li>
-                <li><a href="#propos">À propos</a></li>
-                <li><a href="#services">Nos services</a></li>
-                <li><a href="#footer">Contact</a></li>
-            </ul>
-            <div class="nav-cta">
-                <a href="#" class="btn-outline">Nos agences</a>
-            </div>
+                <li><a href="#arguments">Atouts</a></li>
+                <li><a href="#gallery">Structure</a></li>
+                <li><a href="#" class="btn-portal">Mon Espace</a></li> </ul>
+
+            <div class="mobile-toggle" id="mobile-toggle">
+                <span></span> <span></span> <span></span> </div>
         </div>
     </nav>
 
-    <header id="home" class="hero">
+    <aside class="sidebar" id="sidebar">
+        <ul class="sidebar-links">
+            <li><a href="#home">Accueil</a></li>
+            <li><a href="#arguments">Atouts</a></li>
+            <li><a href="#gallery">Structure</a></li>
+            <li><a href="#testimonials">Témoignages</a></li>
+        </ul>
+    </aside>
+
+    <div class="overlay" id="overlay"></div>
+
+    <header class="hero-section" id="home">
         <div class="hero-overlay">
             <div class="hero-content">
-                <h1>Connecter le Cameroun <br><span>au Monde Entier</span></h1>
-                <p>Internet haut débit, Fibre optique et solutions mobiles de pointe.</p>
-                <div class="hero-btns">
-                    <a href="#services" class="btn-primary">Voir nos offres</a>
-                </div>
+                <h1>L'Excellence Numérique au Cameroun</h1> <p>La puissance du réseau fibre au service de votre croissance et de votre quotidien.</p> <div class="hero-btns">
+                    <a href="#" class="btn-primary">Nos Forfaits</a> <a href="#" class="btn-secondary">Solutions Business</a> </div>
             </div>
         </div>
     </header>
 
-    <section id="propos" class="about">
-        <div class="container">
-            <div class="about-flex">
-                <div class="about-text">
-                    <h2 class="section-title">À propos de nous</h2>
-                    <p>CAMTEL est l'opérateur historique du Cameroun, leader de la transformation numérique depuis 1998.</p>
-                    <div class="stats-grid">
-                        <div class="stat-item"><strong>3500+</strong><p>Employés</p></div>
-                        <div class="stat-item"><strong>10</strong><p>Régions</p></div>
-                        <div class="stat-item"><strong>26+</strong><p>Ans d'expertise</p></div>
-                    </div>
-                </div>
-                <div class="about-img">
-                    <img src="images/certif.jpg" alt="Certification Camtel">
-                </div>
+    <section class="arguments" id="arguments">
+        <h2 class="section-title">Pourquoi nous choisir ?</h2>
+        <div class="arg-container">
+            <div class="arg-item">
+                <div class="number-badge">01</div> <h3>Vitesse Ultra-Fibre</h3>
+                <p>Une connexion stable pour vos visioconférences et téléchargements lourds.</p>
+            </div>
+            <div class="arg-item">
+                <div class="number-badge">02</div>
+                <h3>Réseau National</h3>
+                <p>Une couverture étendue dans les 10 régions pour vous accompagner partout.</p>
+            </div>
+            <div class="arg-item">
+                <div class="number-badge">03</div>
+                <h3>Support Dédié</h3>
+                <p>Une assistance technique locale réactive pour garantir votre continuité.</p>
             </div>
         </div>
     </section>
 
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="section-title center">Nos Services de Pointe</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <img src="images/mobile.jpg" alt="Blue Mobile">
-                    <div class="card-body">
-                        <h3>Mobile</h3>
-                        <p>Voix, SMS et 4G Données sous la marque Blue.</p>
-                        <a href="#" class="btn-link">En savoir plus →</a>
-                    </div>
+    <section class="gallery" id="gallery">
+        <h2 class="section-title">Notre Structure en images</h2>
+        <div class="slider-wrapper">
+            <div class="slider"> <img src="images/siege.jpg" alt="Siège">
+                <img src="images/serveur.jpg" alt="Data Center">
+                <img src="images/agence.jpg" alt="Agence">
+                <img src="images/technique.jpg" alt="Installation">
                 </div>
-                <div class="service-card">
-                    <img src="images/fibre.jpg" alt="Fibre">
-                    <div class="card-body">
-                        <h3>ligne fixe</h3>
-                        <p>Internet ultra-rapide pour les ménages et entreprises.</p>
-                        <a href="#" class="btn-link">En savoir plus →</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <img src="images/datacenter.jpg" alt="Data Center">
-                    <div class="card-body">
-                        <h3>stokage de donnee</h3>
-                        <p>Hébergement local et sauvegarde sécurisée.</p>
-                        <a href="#" class="btn-link">En savoir plus →</a>
-                    </div>
-                </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <h2 class="section-title">Ce que disent nos clients</h2>
+        <div class="testi-container">
+            <div class="testi-card">
+                <p>"La fibre optique a transformé ma façon de travailler à Douala. Rapidité exemplaire !"</p>
+                <h4>- Bolivent Talla.</h4>
+            </div>
+            <div class="testi-card">
+                <p>"Le Mobile Money est enfin intégré parfaitement à mes besoins d'entreprise."</p>
+                <h4>- Ange Djoyce.</h4>
             </div>
         </div>
     </section>
 
-    <footer id="footer" class="footer">
-        <div class="container footer-grid">
+    <footer class="main-footer">
+        <div class="footer-container">
             <div class="footer-info">
-                <img src="images/logo.jpg" alt="Camtel Logo" class="footer-logo">
-                <p> CAMTEL (Cameroun Telecommunications) est l'opérateur de télécommunications historique du Cameroun depuis 1998.</p>
+                <h4>SandraTelecom</h4>
+                <p>Leader de l'infrastructure numérique.</p>
+                <p>Siège : Stade bamendzi, Bafoussam.</p>
             </div>
             <div class="footer-links">
                 <h4>Navigation</h4>
                 <ul>
-                    <li><a href="#home">Accueil</a></li>
-                    <li><a href="#propos">À Propos</a></li>
-                    <li><a href="#services">Services</a></li>
+                    <a href="#home">Accueil</a>
+                    <a href="#arguments">Nos Atouts</a>
+                    <a href="#gallery">Galerie Photo</a>
+                    <a href="#testimonials">Avis Clients</a>
                 </ul>
             </div>
             <div class="footer-contact">
-                <h4>Contact</h4>
-                    <div class="contact-info">
-    <p>
-        <span class="symbol">&#9990;</span> 
-        <a href="tel:+237600000000">+237 653 85 85 86</a>
-    </p>
-    <p>
-        <span class="symbol">&#9993;</span> 
-        <a href="mailto:towasandra6@gmail.com">towasandra6@gmail.com</a>
-    </p>
-</div>
+                <h4>Contactez-nous</h4>
+                <br>
+                <p>
+                    <span class="symbol">&#9990;</span>+237 653 85 85 86</a>
+                </p>
+                <p>
+                    <span class="symbol">&#9993;</span>towasandra6@gmail.com</a>
+                </p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p> 2026 CAMTEL - Extrait réalisé par Sandra Towa</p>
+            <p>&copy; 2026 SandraTelecom - Tous droits réservés.</p>
         </div>
     </footer>
 
+    <script>
+        // Sélection des éléments HTML par leur ID
+        const toggle = document.getElementById('mobile-toggle');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        // Fonction déclenchée lors du clic sur le menu burger
+        toggle.onclick = function() {
+            sidebar.classList.toggle('active'); // Ajoute ou retire la classe CSS 'active' du menu
+            overlay.classList.toggle('active'); // Ajoute ou retire le voile sombre
+        };
+
+        // Fonction déclenchée lors du clic sur le voile sombre (ferme le menu)
+        overlay.onclick = function() {
+            sidebar.classList.remove('active'); // Retire la classe active
+            overlay.classList.remove('active'); // Retire le voile
+        };
+    </script>
 </body>
 </html>
