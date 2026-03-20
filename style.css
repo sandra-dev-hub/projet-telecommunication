@@ -225,7 +225,7 @@ body {
 
 /* ARGUMENTS */
 .arguments { padding: 80px 10%; text-align: center; } /* Section des atouts */
-.section-title { margin-bottom: 50px; color: #004a99; font-size: 2.5rem; 
+.section-title { margin-bottom: 50px; color: #004a99; font-size: 2.5rem; text-align: center;
 }
 .arg-container { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
 .arg-item { 
