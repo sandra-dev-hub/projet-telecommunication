@@ -170,7 +170,7 @@ body {
     z-index: 1040;      /* En dessous de la sidebar */
 }
 
-/* MÉCANISME DU MENU MOBILE SANS JS */
+/* MÉCANISME DU MENU MOBILE SANS L'UTILISATION DU JAVSCRPT */
 #menu-check:checked ~ .sidebar { right: 0; } /* Si la checkbox est cochée, on montre la sidebar */
 #menu-check:checked ~ .overlay { display: block; } /* Si cochée, on montre le fond sombre */ 
 /* HERO SECTION */
